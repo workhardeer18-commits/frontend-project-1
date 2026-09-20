@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تماس با ما</title>
+  <style>
+/* hedeer hast */
+/* هدر اصلی */
+.glass-header {
+    position: fixed;
+    top: 0;
+    width: 95%;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+
+    /* شیشه‌ای با آبی نفتی + آبی یخی */
+    background: rgba(20, 42, 70, 0.45); /* آبی نفتی نیمه‌شفاف */
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* حالت بعد از اسکرول */
+.glass-header.scrolled {
+    background: rgba(15, 30, 50, 0.75);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* لینک‌های منو */
+.menu a {
+    margin-left: 25px;
+    color: #e8f4ff; /* آبی یخی روشن */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a:hover {
+    color: #7acbff; /* آبی روشن */
+}
+
+/* موبایل */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+/* ریسپانسیو */
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        background: rgba(20, 42, 70, 0.85);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+    .menu a {
+        margin: 12px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
+/* tamam */
+
+
+
+    body {
+      font-family: "Vazir", sans-serif;
+      background-color: #001f3f; /* آبی نفتی */
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-section {
+      max-width: 700px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f5d580;
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin: 12px 0;
+    }
+
+    .icon {
+      background-color: #f5d580;
+      color: #001f3f;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      color: #f9f9f9;
+    }
+
+    input, textarea {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 15px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #f5d580;
+      color: #001f3f;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+    }
+
+    button:hover {
+      background-color: #ffe08a;
+    }
+
+    p.center {
+      text-align: center;
+      font-weight: lighter;
+      line-height: 1.6;
+    }
+
+
+
+
+
+
+
+/* 
+    footerr shoro */
+
+
+
+    
+/* ساختار کلی فوتر */
+.main-footer {
+  background: linear-gradient(135deg, #001f2b, #003f5c, #6dd5fa22);
+  padding: 50px 30px;
+  color: white;
+  margin-top: 40px;
+  font-family: "IRANSans", sans-serif;
+  backdrop-filter: blur(6px);
+}
+
+/* تنظیم ستون‌ها */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* هر ستون */
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* تیتر */
+.footer-col h3 {
+  margin-bottom: 15px;
+  border-right: 4px solid #6dd5fa;
+  padding-right: 8px;
+}
+
+/* متن */
+.footer-col p {
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+/* لینک‌ها */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #cbeeff;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-right 0.3s;
+}
+
+.footer-links a:hover {
+  color: #6dd5fa;
+  padding-right: 8px;
+}
+
+/* مجوزها */
+.licenses {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.license-item {
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 10px;
+  width: 130px;
+  transition: transform 0.3s ease;
+}
+
+.license-item:hover {
+  transform: translateY(-5px);
+}
+
+.license-item img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* بخش نقشه */
+.map-box {
+  margin-top: 40px;
+}
+
+.map-box h3 {
+  margin-bottom: 15px;
+  border-right: 4px solid #6dd5fa;
+  padding-right: 8px;
+}
+
+/* انیمیشن ظاهر شدن */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* واکنش‌گرا */
+@media(max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .licenses {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+<header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+        <a href="about7.html">حساب کاربری</a>
+
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+
+
+<script>
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+</script>
+
+
+
+
+
+  <div class="contact-section">
+    <h2>اطلاعات تماس</h2>
+    <p class="center">همکاران ما در سریع‌ترین زمان با شما تماس خواهند گرفت.</p>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="icon">📞</div>
+        <div class="info-text">تلفن تماس: 09044033365-</div>
+      </div>
+      <div class="info-item">
+        <div class="icon">📧</div>
+        <div class="info-text">آدرس ایمیل: werestling.abolfazl.star@gmail.com</div>
+      </div>
+      <div class="info-item">
+        <div class="icon">📍</div>
+        <div class="info-text">آدرس ما: اندیشه, چهار راه میلاد  خیابان سوم</div>
+      </div>
+      <div class="info-item">
+        <div class="icon">📠</div>
+        <div class="info-text">شماره فکس: 021-22210555 – 021-51508510</div>
+      </div>
+      <div class="info-item">
+        <div class="icon">🗓️</div>
+        <div class="info-text">ساعت کاری: شنبه تا پنج‌شنبه‌ 9 تا 20 و جمعه ها ۸ تا ۱۳</div>
+      </div>
+    </div>
+
+    <form>
+      <label>نام شما</label>
+      <input type="text" placeholder="نام خود را وارد کنید">
+
+      <label>ایمیل شما</label>
+      <input type="email" placeholder="example@email.com">
+
+      <label>موضوع درخواست</label>
+      <input type="text" placeholder="موضوع را وارد کنید">
+
+      <label>پیام شما</label>
+      <textarea placeholder="متن پیام خود را بنویسید..."></textarea>
+
+      <button type="submit">ارسال درخواست</button>
+    </form>
+  </div>
+
+
+
+
+  
+
+<script src="coment.js"></script>
+
+<footer class="main-footer">
+
+  <div class="footer-content fade-in">
+
+    <!-- درباره -->
+    <div class="footer-col">
+      <h3>درباره آموزشگاه</h3>
+      <p>
+        آموزشگاه ما با هدف ارائه آموزش‌های تخصصی و مهارت‌محور در زمینه فناوری، مسیر پیشرفت شما را هموار می‌کند.
+        ما ترکیبی از دانش، تجربه عملی و مسیر شغلی روشن را در اختیار شما قرار می‌دهیم.
+      </p>
+    </div>
+
+    <!-- دسترسی آسان -->
+    <div class="footer-col">
+      <h3>دسترسی آسان</h3>
+      <ul class="footer-links">
+        <li><a href="shop.html">فروشگاه</a></li>
+        <li><a href="web log.html">وبلاگ</a></li>
+        <li><a href="about3.html">درباره ما</a></li>
+        <li><a href="about4.html">تماس با ما</a></li>
+        <li><a href="megaweb.html">صفحه اصلی</a></li>
+        <li><a href="about6.html">قوانین و مقررات</a></li>
+        <li><a href="about7.html">حساب کاربری من</a></li>
+      </ul>
+    </div>
+
+    <!-- خبرنامه + مجوزها -->
+    <div class="footer-col">
+      <h3>خبرنامه و مجوزها</h3>
+
+      <div class="licenses">
+        <div class="license-item">
+          <img src="images/license1.png" alt="مجوز رسمی">
+          <p>مجوز رسمی وزارت علوم</p>
+        </div>
+
+        <div class="license-item">
+          <img src="images/license2.png" alt="مجوز فنی">
+          <p>مجوز سازمان فنی و حرفه‌ای</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نقشه -->
+  <div class="map-box fade-in">
+    <h3>موقعیت آموزشگاه روی نقشه</h3>
+    <iframe 
+      src="https://maps.app.goo.gl/A4fth8YVpyu4fekz5?g_st=atm"
+      width="100%" 
+      height="400"
+      style="border: 0; border-radius: 12px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+</footer>
+
+
+</body>
+</html>
+

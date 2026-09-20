@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="magaweb.css">
+    <title>megaweb.2025</title>
+</head>
+<body>
+<header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+        <a href="about7.html">حساب کاربری</a>
+
+
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+
+
+<script>
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+</script>
+
+<div class="card-container">
+  <!-- کارت اول -->
+  <div class="card">
+    <h2>MegaWeb: Front-End</h2>
+  </div>
+
+  <!-- کارت دوم -->
+  <div class="card">
+    <h2>MegaWeb: Back-End</h2>
+  </div>
+
+  <!-- کارت سوم -->
+  <div class="card">
+    <h2>MegaWeb: Cloud Services</h2>
+  </div>
+
+  <!-- کارت چهارم -->
+  <div class="card">
+    <h2>MegaWeb: AI Solutions</h2>
+  </div>
+</div>
+
+
+
+
+
+<div class="slider-container">
+    <div class="slider-wrapper" id="sliderWrapper">
+
+        <!-- کارت دوره 1 -->
+        <div class="course-card">
+            <img src="URL_IMAGE_1" alt="دوره آنلاین 1">
+            <div class="course-info">
+                <div>
+                    <h3>عنوان دوره آنلاین 1</h3>
+                    <p style="font-size: 0.9em; color: #666; text-align: right;">توضیح کوتاه درباره دوره اول.</p>
+                </div>
+                <div class="course-price">1,200,000 تومان</div>
+            </div>
+            <a href="URL_PAGE_1" class="buy-button">افزودن به سبد خرید</a>
+        </div>
+
+        <!-- کارت دوره 2 -->
+        <div class="course-card">
+            <img src="URL_IMAGE_2" alt="دوره آنلاین 2">
+            <div class="course-info">
+                <div>
+                    <h3>عنوان دوره آنلاین 2</h3>
+                    <p style="font-size: 0.9em; color: #666; text-align: right;">توضیح کوتاه درباره دوره دوم.</p>
+                </div>
+                <div class="course-price">950,000 تومان</div>
+            </div>
+            <a href="URL_PAGE_2" class="buy-button">افزودن به سبد خرید</a>
+        </div>
+
+        <!-- کارت دوره 3 -->
+        <div class="course-card">
+            <img src="URL_IMAGE_3" alt="دوره آنلاین 3">
+            <div class="course-info">
+                <div>
+                    <h3>عنوان دوره آنلاین 3</h3>
+                    <p style="font-size: 0.9em; color: #666; text-align: right;">توضیح کوتاه درباره دوره سوم.</p>
+                </div>
+                <div class="course-price">1,500,000 تومان</div>
+            </div>
+            <a href="URL_PAGE_3" class="buy-button">افزودن به سبد خرید</a>
+        </div>
+
+        <!-- کارت دوره 4 -->
+        <div class="course-card">
+            <img src="URL_IMAGE_4" alt="دوره آنلاین 4">
+            <div class="course-info">
+                <div>
+                    <h3>عنوان دوره آنلاین 4</h3>
+                    <p style="font-size: 0.9em; color: #666; text-align: right;">توضیح کوتاه درباره دوره چهارم.</p>
+                </div>
+                <div class="course-price">800,000 تومان</div>
+            </div>
+            <a href="URL_PAGE_4" class="buy-button">افزودن به سبد خرید</a>
+        </div>
+
+
+    <!-- دکمه های ناوبری -->
+    <button class="slider-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="slider-nav next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+
+<script>
+const sliderWrapper = document.getElementById('sliderWrapper');
+const cards = document.querySelectorAll('.course-card');
+const numCards = cards.length;
+let currentSlide = 0;
+let slideInterval; // برای نگهداری شناسه setTimeout
+const autoSlideDelay = 8000; // فاصله زمانی بین تعویض اسلایدها (5 ثانیه)
+
+// محاسبه عرض کارت با در نظر گرفتن مارجین
+// فرض می‌کنیم مارجین راست برای همه کارت‌ها یکسان است
+const cardMarginRight = parseInt(getComputedStyle(cards[0]).marginRight);
+const cardWidth = cards[0].offsetWidth + cardMarginRight;
+
+
+function updateSlider() {
+    // محاسبه آفست بر اساسعرض کارت و مارجین
+    const offset = -currentSlide * cardWidth;
+    sliderWrapper.style.transform = `translateX(${offset}px)`;
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+
+    // رفتن به ابتدا یا انتهای اسلایدر
+    if (currentSlide < 0) {
+        currentSlide = numCards - 1;
+    } else if (currentSlide >= numCards) {
+        currentSlide = 0;
+    }
+    updateSlider();
+}
+
+function autoSlide() {
+    changeSlide(4); // حرکت به اسلاید بعدی
+}
+
+function startAutoSlide() {
+    // پاک کردن تایمر قبلی اگر وجود داشت
+    clearInterval(slideInterval);
+    // راه‌اندازی تایمر جدید
+    slideInterval = setInterval(autoSlide, autoSlideDelay);
+}
+
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// رویداد کلیک برای دکمه‌های ناوبری
+document.querySelector('.slider-nav.prev').addEventListener('click', () => {
+    changeSlide(-1);
+    startAutoSlide(); // ریست کردن تایمر بعد از کلیک دستی
+});
+
+document.querySelector('.slider-nav.next').addEventListener('click', () => {
+    changeSlide(1);
+    startAutoSlide(); // ریست کردن تایمر بعد از کلیک دستی
+});
+
+// نمایش اولیه اسلایدر
+updateSlider();
+
+// شروع اسلاید خودکار
+startAutoSlide();
+
+// وقتی موس روی اسلایدر قرار می‌گیرد، اسلاید خودکار متوقف شود
+document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoSlide);
+// وقتی موس از روی اسلایدر برداشته می‌شود، اسلاید خودکار دوباره شروع شود
+document.querySelector('.slider-container').addEventListener('mouseleave', startAutoSlide);
+
+
+</script>
+
+
+ <br>
+  <br>
+   <br>
+    <br>
+
+
+ <br>
+  <br>
+   <br>
+    <br>
+
+
+
+<script src="script.js"></script> <!-- لینک به فایل JavaScript -->
+
+
+
+
+
+
+
+
+<script src="megaweb.js"></script>
+
+
+    <!-- اتصال به فایل CSS -->
+    <link rel="stylesheet" href="style.css">
+ <div class="weblogy">
+        <!-- کارت وبلاگ ۱ -->        <a href="dore.htmll.html" class="weblog-box-link">            <div class="weblog-box">                <!-- می‌توانید به جای تصویر، یک آیکون SVG یا فونت آوسم قرار دهید -->                <img src="https://via.placeholder.com/70x70?text=CSS" alt="Icon for CSS">                <h3>طراحی سایت با CSS مدرن</h3>                <p>یاد بگیرید چطور با استفاده از Grid و Flexbox، چیدمان‌های ریسپانسیو و خیره‌کننده بسازید و جلوه‌های نورانی را پیاده‌سازی کنید.</p>            </div>        </a>
+
+        <!-- کارت وبلاگ ۲ -->        <a href="css.doreh.html" class="weblog-box-link">            <div class="weblog-box">                <img src="https://via.placeholder.com/70x70?text=JS" alt="Icon for JavaScript">                <h3>جادوی جاوااسکریپت در وب</h3>                <p>راهنمای کامل برای شروع کار با React و Vue.js و ساختن کامپوننت‌های تعاملی و پرفورمنس بالا در کمترین زمان ممکن.</p>            </div>        </a>
+
+        <!-- کارت وبلاگ ۳ -->        <a href="weblog.edit.html" class="weblog-box-link">            <div class="weblog-box">                <img src="https://via.placeholder.com/70x70?text=SEO" alt="Icon for SEO">                <h3>۱۰ نکته حیاتی سئو در سال ۲۰۲۵</h3>                <p>چگونه با بهینه‌سازی کدهای HTML و CSS خود، رتبه سایتتان را در موتورهای جستجو به طور چشمگیری بهبود بخشید.</p>            </div>        </a>
+         
+        <!-- کارت وبلاگ ۴ -->        <a href="weblog.seo.html" class="weblog-box-link">            <div class="weblog-box">                <img src="https://via.placeholder.com/70x70?text=AI" alt="Icon for AI">                <h3>هوش مصنوعی و آینده برنامه نویسی</h3>                <p>بررسی ابزارهای AI که می‌توانند فرآیند کدنویسی را تسریع بخشیده و کمک کنند تا باگ‌ها سریع‌تر رفع شوند.</p>            </div>        </a>
+    </div>
+
+ <br>
+  <br>
+   <br>
+    <br>
+
+
+
+
+
+<div class="custom-slider-wrapper">
+    <div class="custom-slider-slide is-active">
+        <div class="custom-slider-content">
+            <span class="custom-slider-icon">🚀</span> <!-- آیکون دلخواه -->
+            <span class="custom-slider-text">Mega Web: The Future is Here</span>
+        </div>
+    </div>
+    <div class="custom-slider-slide">
+        <div class="custom-slider-content">
+             <span class="custom-slider-icon">💡</span> <!-- آیکون دلخواه -->
+            <span class="custom-slider-text">Innovate. Create. Dominate.</span>
+        </div>
+    </div>
+    <!-- اسلایدهای بیشتر -->
+</div>
+<script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.custom-slider-slide');
+    const totalSlides = slides.length;
+    const slideDisplayInterval = 3000; // 3 ثانیه
+
+    function showNextSlide() {
+        slides[currentSlideIndex].classList.remove('is-active');
+        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+        slides[currentSlideIndex].classList.add('is-active');
+    }
+
+    // نمایش اسلاید اول در ابتدا
+    if (slides.length > 0) {
+      slides[currentSlideIndex].classList.add('is-active');
+      // شروع تعویض خودکار اسلایدها
+      setInterval(showNextSlide, slideDisplayInterval);
+    }
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+<div class="article-container">
+    <h1 class="article-title" style="color: rgb(255, 255, 255);">درباره مگاوب</h1>
+
+    
+    <h2 class="article-subtitle">آموزشگاه تخصصی ما با سابقه‌ای درخشان و پرافتخار در عرصه ارائه آموزش‌های تخصصی و کاربردی، رسالت خود را بر مبنای پرورش نسل جدیدی از متخصصان کارآزموده در حوزه‌های فناوری پیشرفته، مهارت‌های فنی نوین و دانش‌های روز دنیا بنا نهاده است. ما خود را نه فقط یک مرکز آموزشی، بلکه به عنوان یک اکوسیستم یادگیری فعال و یک شتاب‌دهنده مسیر شغلی می‌دانیم. هدف اصلی ما فراهم آوردن محیطی پویا، حمایت‌گر، و مملو از فرصت‌های یادگیری عمیق است که دانشجویان را برای دستیابی به موفقیت‌های شغلی چشمگیر آماده سازد. ما معتقدیم که تخصص واقعی از ترکیب دانش بنیادین قوی و تجربه عملی بی‌واسطه حاصل می‌شود.</h2>
+    <div class="article-content">
+
+        
+
+        
+    </div>
+    <div class="article-footer">
+        <span>نویسنده: نام شما</span> | <span>تاریخ: آذر ۱۴۰۴</span>
+    </div>
+</div>
+ <br>
+  <br>
+   <br>
+    <br>
+<br>
+<br>
+<div class="comments-wrapper">
+
+    <!-- میانگین امتیاز -->
+    <div class="rating-summary-box">
+        <h3 style="color: aliceblue;">امتیاز کاربران به مگاوب</h3>
+        <span  id="average-rating">0</span>
+        <div id="average-stars"></div>
+        <p  id="total-reviews">0 نظر ثبت شده</p>
+    </div>
+
+    <!-- فرم ارسال نظر -->
+    <div class="comment-form-container">
+        <h3 class="form-title">ارسال دیدگاه و امتیاز</h3>
+
+        <div class="rating-label">امتیاز شما:</div>
+        <div class="star-rating">
+            <span data-star="5">★</span>
+            <span data-star="4">★</span>
+            <span data-star="3">★</span>
+            <span data-star="2">★</span>
+            <span data-star="1">★</span>
+        </div>
+        <input type="hidden" id="rating-value" value="0">
+
+        <form id="comment-form">
+
+            <label class="form-label">متن نظر</label>
+            <textarea id="comment-text" class="textarea-control" rows="5"></textarea>
+
+            <label class="form-label">نام شما</label>
+            <input type="text" id="name" class="form-control">
+
+            <button class="submit-button">ارسال نظر</button>
+        </form>
+    </div>
+
+    <!-- لیست نظرات -->
+    <div class="comments-list-container">
+        <h3 class="list-title">نظرات کاربران</h3>
+        <div id="comments-list"></div>
+    </div>
+
+</div>
+
+<script>
+
+/* کامنت‌های فیک واقعی و طبیعی */
+let comments = [
+    { name: "نیما کرمی", text: "دوره API مگاوب واقعاً کاربردی بود. پروژه محور و کامل.", rating: 5 },
+    { name: "زهرا مرادی", text: "پشتیبانی عالی بود، خیلی سریع پاسخ دادن. ممنونم ازتون.", rating: 5 },
+    { name: "آرین احمدی", text: "قیمت‌ها نسبت به کیفیت دوره‌ها انصافیه.", rating: 4 },
+    { name: "پرنیا فرهمند", text: "ظاهر سایتتون خیلی جذابه. دوره UI/UX هم عالی بود.", rating: 5 },
+    { name: "محمد طاهری", text: "کاش دوره‌ها فصل‌های بیشتری داشت ولی همین هم عالیه.", rating: 4 },
+    { name: "ترانه شریفی", text: "آموزش جاوااسکریپتتون بهترین بود. بدون حاشیه و مفید.", rating: 5 },
+    { name: "نوید غلامی", text: "بسته به موقع رسید. بسته‌بندی عالی!", rating: 4 },
+    { name: "آیدا کیانی", text: "دوره پایتون واقعا از سطح صفر شروع کرده بود. برای مبتدی‌ها عالیه.", rating: 5 },
+    { name: "سامیار رمضانی", text: "جزوه‌های حرفه‌ای و کیفیت خوب صدا و تصویر.", rating: 5 },
+    { name: "فاطمه سلیمانی", text: "پیشنهاد می‌کنم، پشتیبانی‌شون عالیه.", rating: 5 },
+    { name: "سینا راد", text: "از فروشگاه فلش ۸۰ گیگ خریدم، کیفیتش خوب بود.", rating: 4 },
+    { name: "علیرضا محمودی", text: "ای کاش دوره‌های رایگان بیشتری بزارید.", rating: 3 },
+    { name: "شقایق فرداد", text: "مدرس ها با حوصله و مسلط هستن. خیلی راضیم.", rating: 5 },
+    { name: "پارسا نیک‌پی", text: "دوره طراحی سایت واقعا فوق‌العاده بود.", rating: 5 },
+    { name: "هلیا اکبری", text: "فقط ای کاش تخفیف‌ها بیشتر باشه.", rating: 4 }
+];
+
+/* ستاره‌های انتخابی */
+document.querySelectorAll(".star-rating span").forEach(star=>{
+    star.addEventListener("click",function(){
+        const val = this.dataset.star;
+        document.getElementById("rating-value").value = val;
+
+        document.querySelectorAll(".star-rating span").forEach(s=>s.classList.remove("active"));
+        
+        let current = this;
+        while(current){
+            current.classList.add("active");
+            current = current.nextElementSibling;
+        }
+    });
+});
+
+/* ساختن ستاره‌ها */
+function getStars(num){
+    let s="";
+    for(let i=1;i<=5;i++){
+        s+=`<span class="star-icon ${i<=num?"":"empty"}">★</span>`;
+    }
+    return s;
+}
+
+/* آپدیت میانگین امتیاز */
+function updateAverage(){
+    const avg = (comments.reduce((a,b)=>a+b.rating,0) / comments.length).toFixed(1);
+    document.getElementById("average-rating").innerHTML = avg;
+    document.getElementById("average-stars").innerHTML = getStars(Math.round(avg));
+    document.getElementById("total-reviews").innerHTML = comments.length + " نظر ثبت شده";
+}
+
+/* ساخت لیست کامنت‌ها */
+function renderComments(){
+    const box = document.getElementById("comments-list");
+    box.innerHTML = "";
+    comments.forEach(c=>{
+        box.innerHTML+=`
+            <div class="comment-item">
+                <div class="comment-header">
+                    <span class="comment-name">${c.name}</span>
+                    <span class="comment-stars">${"★".repeat(c.rating)}</span>
+                </div>
+                <div class="comment-text">${c.text}</div>
+            </div>
+        `;
+    });
+}
+
+/* ثبت نظر جدید */
+document.getElementById("comment-form").addEventListener("submit",function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const text = document.getElementById("comment-text").value.trim();
+    const rating = +document.getElementById("rating-value").value;
+
+    if(!name || !text || rating===0){
+        alert("لطفا همه فیلدها را کامل کنید.");
+        return;
+    }
+
+    comments.unshift({name,text,rating});
+    renderComments();
+    updateAverage();
+
+    this.reset();
+    document.querySelectorAll(".star-rating span").forEach(s=>s.classList.remove("active"));
+    document.getElementById("rating-value").value=0;
+});
+
+/* اجرای اولیه */
+renderComments();
+updateAverage();
+</script>
+
+
+
+
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<script src="coment.js"></script>
+
+
+<footer class="main-footer">
+  <div class="footer-content-wrapper"> <!-- یک wrapper جدید برای محدود کردن عرض -->
+    
+    <div class="footer-content"> <!-- کلاس قبلی که الان فقط ستون‌ها را شامل می‌شود -->
+
+      <!-- درباره -->
+      <div class="footer-col">
+        <h3>درباره آموزشگاه</h3>
+        <p>
+          آموزشگاه ما با هدف ارائه آموزش‌های تخصصی و مهارت‌محور در زمینه فناوری، مسیر پیشرفت شما را هموار می‌کند.
+          ما ترکیبی از دانش، تجربه عملی و مسیر شغلی روشن را در اختیار شما قرار می‌دهیم.
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+      
+      <!-- دسترسی آسان -->
+      <div class="footer-col">
+        <h3>دسترسی آسان</h3>
+        <ul class="footer-links">
+          <li><a href="shop.html">فروشگاه</a></li>
+          <li><a href="web log.html">وبلاگ</a></li>
+          <li><a href="about3.html">درباره ما</a></li>
+          <li><a href="about4.html">تماس با ما</a></li>
+          <li><a href="megaweb.html">صفحه اصلی</a></li>
+          <li><a href="about6.html">قوانین و مقررات</a></li>
+          <li><a href="about7.html">حساب کاربری من</a></li>
+        </ul>
+      </div>
+
+      <!-- خبرنامه + مجوزها -->
+      <div class="footer-col">
+        <h3>خبرنامه و مجوزها</h3>
+        <div class="licenses">
+          <div class="license-item">
+            <img src="images/license1.png" alt="مجوز رسمی">
+            <p>مجوز رسمی وزارت علوم</p>
+          </div>
+          <div class="license-item">
+            <img src="images/license2.png" alt="مجوز فنی">
+            <p>مجوز سازمان فنی و حرفه‌ای</p>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- پایان footer-content -->
+
+    <!-- نقشه - این هم باید داخل wrapper داخلی باشد -->
+    <div class="map-box fade-in"> <!-- map-box هم باید در wrapper قرار گیرد -->
+      <h3>موقعیت آموزشگاه روی نقشه</h3>
+      <iframe 
+        src="https://maps.app.goo.gl/A4fth8YVpyu4fekz5?g_st=atm"
+        width="100%" 
+        height="400"
+        style="border: 0; border-radius: 12px;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div> <!-- پایان footer-content-wrapper -->
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+    
+/* css headeer hastesh */
+
+/* هدر شیشه‌ای */
+.glass-header {
+    position: fixed;
+    top: 0;
+    width: 95%;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+
+    background: rgba(20, 42, 70, 0.45);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+    z-index: 999;
+}
+
+/* حالت اسکرول */
+.glass-header.scrolled {
+    background: rgba(15, 30, 50, 0.75);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* لینک‌ها */
+.menu a {
+    margin-left: 25px;
+    color: #e8f4ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a:hover {
+    color: #7acbff;
+}
+
+/* موبایل */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+/* ریسپانسیو */
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        background: rgba(20, 42, 70, 0.85);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    .menu a {
+        margin: 12px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+
+<header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+
+
+
+<script>
+// heeeder hast
+
+    const header1 = document.getElementById("header");
+    const toggle2= document.getElementById("toggle");
+    const menu3 = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+// heeder tamam
+
+
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+  <header>
+        <h1>برنامه‌نویسی: تاریخچه و تکامل</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>برنامه‌نویسی چیست؟</h2>
+            <p class="article-contentp">
+                برنامه ‌نویسی در نقطه‌ای آغاز شد که انسان نیاز پیدا کرد محاسبات پیچیده را به شکلی دقیق و تکرارپذیر انجام دهد. نخستین جرقه ‌های این مفهوم را می‌توان در اوایل قرن نوزدهم دید؛ زمانی که «<strong class="seo-highlight">چارلز بَبِج</strong>» طرح ماشینی به نام <em>موتور تحلیلی</em> را ارائه داد. اهمیت این طرح در این بود که دستگاه می‌توانست طبق دستوراتی از پیش نوشته‌شده عمل کند. همین ویژگی باعث شد «<strong class="seo-highlight">آدا لاولیس</strong>» اولین کسی باشد که به‌طور رسمی یک الگوریتم برای اجرا روی ماشین بَبِج نوشت؛ اثری که امروز از آن به‌عنوان اولین برنامهٔ کامپیوتری یاد می‌شود.
+            </p>
+        </section>
+
+        <section>
+            <h2>تاریخچهٔ برنامه‌نویسی و مسیر تکامل آن</h2>
+            <p class="article-contentp">
+                با ظهور رایانه‌های الکترونیکی در دههٔ ۱۹۴۰، برنامه‌نویسی وارد مرحله‌ای کاملاً جدید شد. در این دوران، برنامه‌ها مستقیم با زبان ماشین نوشته می‌شدند؛ زبانی متکی به صفر و یک که یادگیری و استفاده از آن بسیار دشوار بود. برای ساده‌سازی این فرایند، زبان اسمبلی معرفی شد؛ زبانی که هنوز هم پایهٔ ارتباط نزدیک با سخت‌افزار به شمار می‌رود.
+            </p>
+            <p class="article-contentp">
+                دههٔ ۱۹۵۰ آغاز جهشی بزرگ بود. زبان‌هایی مانند <strong>Fortran</strong> و <strong>COBOL</strong> توسعه یافتند تا برنامه‌نویسی را برای علوم، تجارت و صنعت قابل‌استفاده‌تر کنند. این زبان‌ها برای اولین بار مفاهیمی مانند متغیر، حلقه و ساختارهای کنترلی را به صورت سازمان‌یافته وارد دنیای برنامه‌نویسی کردند.
+            </p>
+            <p class="article-contentp">
+                در دهه‌های ۱۹۷۰ و ۱۹۸۰ نگاه‌ها به سمت زبان‌هایی رفت که هم به سخت‌افزار نزدیک باشند و هم قدرت انتزاع بیشتری ارائه دهند. زبان <strong>C</strong> در این دوران پدید آمد و به‌سرعت تبدیل به یکی از مهم‌ترین ابزارهای توسعهٔ نرم‌افزار شد. بعدها زبان <strong>++C</strong> با افزودن قابلیت‌های شیءگرایی توانست مفهوم مدل‌سازی دنیای واقعی را وارد برنامه‌نویسی کند و معماری‌های نرم‌افزاری را دگرگون سازد.
+            </p>
+            <p class="article-contentp">
+                دههٔ ۱۹۹۰ با گسترش اینترنت همراه بود و همین موضوع باعث تولد زبان‌هایی مثل <strong>Java</strong> و <strong>JavaScript</strong> شد. جاوا مفهوم «یک بار بنویس، همه‌جا اجرا کن» را مطرح کرد، در حالی که جاوااسکریپت وب را از صفحات سادهٔ ثابت به یک بستر پویا و تعاملی تبدیل کرد.
+            </p>
+            <p class="article-contentp">
+                با ورود به دههٔ ۲۰۱۰، زبان‌هایی مانند <strong>Python</strong> به دلیل سادگی، خوانایی و توانایی در حوزه‌هایی مثل هوش مصنوعی، داده‌کاوی و اتوماسیون به محبوبیت فراوان رسیدند. در همین دوره، برنامه‌نویسی موبایل نیز با ظهور iOS و Android شکل گرفت و زبان‌هایی مانند Swift و Kotlin وارد میدان شدند.
+            </p>
+            <p class="article-contentp">
+                امروزه برنامه‌نویسی به مرحله‌ای رسیده که بخش بزرگی از آن با کمک چارچوب‌ها، کتابخانه‌ها و حتی هوش مصنوعی انجام می‌شود. توسعه‌دهندگان بیش از هر زمان دیگری به جای نوشتن همه‌چیز از صفر، روی حل مشکلات واقعی و بهبود تجربهٔ کاربران تمرکز می‌کنند. هوش مصنوعی نیز نسل جدیدی از ابزارهای کمکی برنامه‌نویسی را ایجاد کرده که می‌توانند کد بسازند، تحلیل کنند و حتی خطاها را شناسایی کنند.
+            </p>
+            <p class="article-contentp">
+                در جمع‌بندی می‌توان گفت برنامه‌نویسی از چند برگ کاغذ و یک ماشین مکانیکی آغاز شد و امروز به جایی رسیده که زیربنای زندگی دیجیتال بشر را تشکیل می‌دهد. این مسیر طولانی نشان می‌دهد که برنامه‌نویسی تنها یک مهارت فنی نیست؛ بلکه تحولی فرهنگی و فکری است که آیندهٔ جهان را شکل می‌دهد.
+            </p>
+        </section>
+
+          <header>
+        <h1>مباحث کلیدی علوم کامپیوتر</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>هوش مصنوعی و یادگیری ماشین</h2>
+            <p class="content-paragraph">
+                هوش مصنوعی تلاشی برای ساخت سیستم‌هایی است که قادر باشند رفتارهای هوشمندانه شبیه انسان از خود نشان دهند. یادگیری ماشین یکی از شاخه‌های کلیدی آن است که به ماشین‌ها اجازه می‌دهد از داده‌ها الگو یاد بگیرند و بدون برنامه‌نویسی مستقیم، تصمیم‌گیری کنند. مدل‌های یادگیری عمیق، به‌ویژه شبکه‌های عصبی، باعث پیشرفت چشمگیر در حوزه‌هایی مثل تشخیص تصویر، ترجمهٔ خودکار، پردازش زبان، خودروهای خودران و دستیارهای هوشمند شده‌اند. یکی از دلایل محبوبیت این حوزه، وجود کتابخانه‌های گسترده‌ای مانند <strong class="highlight-keyword">TensorFlow</strong>، <strong class="highlight-keyword">PyTorch</strong> و <strong class="highlight-keyword">Scikit-learn</strong> است که فرایند توسعه را ساده و کاربردی می‌کنند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>توسعهٔ وب</h2>
+            <p class="content-paragraph">
+                توسعهٔ وب به دو بخش اصلی تقسیم می‌شود:
+            </p>
+            <ul>
+                <li><span class="sub-heading">بخش کاربری (Front-End)</span></li>
+                <li><span class="sub-heading">بخش سرور و پایگاه داده (Back-End)</span></li>
+            </ul>
+            <p class="content-paragraph">
+                در قسمت کاربری، زبان‌هایی مانند <strong class="highlight-keyword">HTML</strong>، <strong class="highlight-keyword">CSS</strong> و <strong class="highlight-keyword">JavaScript</strong> ظاهر و رفتار صفحات وب را شکل می‌دهند؛ فریم‌ورک‌هایی مثل <strong class="highlight-keyword">React</strong> و <strong class="highlight-keyword">Vue</strong> تجربهٔ کاربری را بهبود می‌بخشند. در بخش سرور، زبان‌هایی مانند <strong class="highlight-keyword">Node.js</strong>، <strong class="highlight-keyword">Python</strong> (Django/Flask)، <strong class="highlight-keyword">PHP</strong> و <strong class="highlight-keyword">Java</strong> داده‌ها را پردازش و مدیریت می‌کنند. امروزه توسعهٔ وب به یک مهارت حیاتی تبدیل شده، زیرا تقریبا همهٔ خدمات کسب‌وکارها به فضای آنلاین منتقل شده‌اند. امنیت، سرعت، طراحی واکنش‌گرا و بهینه‌سازی تجربهٔ کاربری مهم‌ترین چالش‌های این حوزه هستند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>الگوریتم‌ها و ساختمان داده</h2>
+            <p class="content-paragraph">
+                الگوریتم‌ها مجموعه‌ای از گام‌های دقیق برای حل یک مسئله هستند و ساختمان داده‌ها روش‌هایی برای سازمان‌دهی و ذخیرهٔ اطلاعات. ترکیب این دو، شالودهٔ علوم کامپیوتر را تشکیل می‌دهد. ساختمان داده‌هایی مثل <strong class="highlight-keyword">آرایه</strong>، <strong class="highlight-keyword">لیست پیوندی</strong>، <strong class="highlight-keyword">پشته</strong>، <strong class="highlight-keyword">صف</strong>، <strong class="highlight-keyword">درخت</strong> و <strong class="highlight-keyword">گراف</strong> نقش اساسی در طراحی سیستم‌های کارآمد دارند. الگوریتم‌هایی مانند <strong class="highlight-keyword">جست‌وجو</strong>، <strong class="highlight-keyword">مرتب‌سازی</strong>، <strong class="highlight-keyword">پیمایش گراف</strong> و الگوریتم‌های بهینه‌سازی عملکرد نرم‌افزار را بهبود می‌بخشند. تسلط بر این بخش نه تنها برای برنامه‌نویسی سطح بالا مهم است، بلکه ستون فقرات رقابت‌های برنامه‌نویسی، طراحی سیستم‌های بزرگ مقیاس و مصاحبه‌های فنی شرکت‌های بزرگ نیز محسوب می‌شود.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>امنیت سایبری</h2>
+            <p class="content-paragraph">
+                در دنیای دیجیتال، امنیت یکی از مهم‌ترین دغدغه‌هاست. امنیت سایبری مجموعه‌ای از روش‌ها و فناوری‌هاست که تلاش می‌کنند سیستم‌ها، شبکه‌ها و داده‌ها را در برابر حملات و تهدیدات محافظت کنند. این حوزه شامل مباحثی مانند <strong class="highlight-keyword">رمزنگاری</strong>، <strong class="highlight-keyword">تست نفوذ</strong>، <strong class="highlight-keyword">مدیریت آسیب‌پذیری</strong>، <strong class="highlight-keyword">فایروال‌ها</strong>، <strong class="highlight-keyword">تحلیل بدافزار</strong> و <strong class="highlight-keyword">امنیت شبکه</strong> است. با افزایش حملات سایبری، متخصصان امنیت به یکی از پرتقاضاترین نقش‌ها تبدیل شده‌اند. مدل‌های امنیتی جدید مانند <strong class="highlight-keyword">Zero Trust</strong> و استفاده از هوش مصنوعی در شناسایی تهدیدات، نسل تازه‌ای از سامانه‌های حفاظتی را به وجود آورده‌اند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>مهندسی نرم‌افزار</h2>
+            <p class="content-paragraph">
+                مهندسی نرم‌افزار علمی است که با هدف ساخت سیستم‌های قابل‌اعتماد، مقیاس‌پذیر و قابل نگه‌داری شکل گرفته. این حوزه شامل <strong class="highlight-keyword">تحلیل نیازمندی‌ها</strong>، <strong class="highlight-keyword">طراحی معماری</strong>، <strong class="highlight-keyword">تست</strong>، <strong class="highlight-keyword">استقرار</strong> و <strong class="highlight-keyword">نگهداری نرم‌افزار</strong> است. روش‌های توسعه مثل <strong class="highlight-keyword">Agile</strong> و <strong class="highlight-keyword">Scrum</strong> تیم‌ها را قادر می‌کند محصول را مرحله‌به‌مرحله بسازند و کیفیت را در طول مسیر حفظ کنند. مهندسی نرم‌افزار بیش از کدنویسی است؛ نوعی تفکر سیستماتیک برای خلق راه‌حل‌های پایدار در مقیاس بزرگ.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>پایگاه‌های داده</h2>
+            <p class="content-paragraph">
+                پایگاه داده یکی از مهم‌ترین بخش‌های هر سیستم نرم‌افزاری است. این ساختارها اطلاعات را ذخیره، مدیریت و بازیابی می‌کنند. پایگاه‌های داده رابطه‌ای مثل <strong class="highlight-keyword">MySQL</strong> و <strong class="highlight-keyword">PostgreSQL</strong> داده‌ها را در جدول‌ها سازمان‌دهی می‌کنند، در حالی که پایگاه‌های <strong class="highlight-keyword">NoSQL</strong> مانند <strong class="highlight-keyword">MongoDB</strong> برای داده‌های حجیم و ساختاری‌نیافته مناسب‌اند. امروزه مدیریت داده‌ها با ظهور <strong class="highlight-keyword">Big Data</strong>، پردازش توزیع‌شده و الگوریتم‌های تحلیلی وارد مرحله‌ای جدید شده و ابزارهایی مثل <strong class="highlight-keyword">Hadoop</strong> و <strong class="highlight-keyword">Spark</strong> در این عرصه نقش کلیدی دارند.
+            </p>
+        </section>
+
+           <header>
+        <h1>مباحث کلیدی علوم کامپیوتر</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>هوش مصنوعی و یادگیری ماشین</h2>
+            <p class="content-paragraph">
+                هوش مصنوعی تلاشی برای ساخت سیستم‌هایی است که قادر باشند رفتارهای هوشمندانه شبیه انسان از خود نشان دهند. یادگیری ماشین یکی از شاخه‌های کلیدی آن است که به ماشین‌ها اجازه می‌دهد از داده‌ها الگو یاد بگیرند و بدون برنامه‌نویسی مستقیم، تصمیم‌گیری کنند. مدل‌های یادگیری عمیق، به‌ویژه شبکه‌های عصبی، باعث پیشرفت چشمگیر در حوزه‌هایی مثل تشخیص تصویر، ترجمهٔ خودکار، پردازش زبان، خودروهای خودران و دستیارهای هوشمند شده‌اند. یکی از دلایل محبوبیت این حوزه، وجود کتابخانه‌های گسترده‌ای مانند <strong class="highlight-keyword">TensorFlow</strong>، <strong class="highlight-keyword">PyTorch</strong> و <strong class="highlight-keyword">Scikit-learn</strong> است که فرایند توسعه را ساده و کاربردی می‌کنند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>توسعهٔ وب</h2>
+            <p class="content-paragraph">
+                توسعهٔ وب به دو بخش اصلی تقسیم می‌شود:
+            </p>
+            <ul>
+                <li><span class="sub-heading">بخش کاربری (Front-End)</span></li>
+                <li><span class="sub-heading">بخش سرور و پایگاه داده (Back-End)</span></li>
+            </ul>
+            <p class="content-paragraph">
+                در قسمت کاربری، زبان‌هایی مانند <strong class="highlight-keyword">HTML</strong>، <strong class="highlight-keyword">CSS</strong> و <strong class="highlight-keyword">JavaScript</strong> ظاهر و رفتار صفحات وب را شکل می‌دهند؛ فریم‌ورک‌هایی مثل <strong class="highlight-keyword">React</strong> و <strong class="highlight-keyword">Vue</strong> تجربهٔ کاربری را بهبود می‌بخشند. در بخش سرور، زبان‌هایی مانند <strong class="highlight-keyword">Node.js</strong>، <strong class="highlight-keyword">Python</strong> (Django/Flask)، <strong class="highlight-keyword">PHP</strong> و <strong class="highlight-keyword">Java</strong> داده‌ها را پردازش و مدیریت می‌کنند. امروزه توسعهٔ وب به یک مهارت حیاتی تبدیل شده، زیرا تقریبا همهٔ خدمات کسب‌وکارها به فضای آنلاین منتقل شده‌اند. امنیت، سرعت، طراحی واکنش‌گرا و بهینه‌سازی تجربهٔ کاربری مهم‌ترین چالش‌های این حوزه هستند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>الگوریتم‌ها و ساختمان داده</h2>
+            <p class="content-paragraph">
+                الگوریتم‌ها مجموعه‌ای از گام‌های دقیق برای حل یک مسئله هستند و ساختمان داده‌ها روش‌هایی برای سازمان‌دهی و ذخیرهٔ اطلاعات. ترکیب این دو، شالودهٔ علوم کامپیوتر را تشکیل می‌دهد. ساختمان داده‌هایی مثل <strong class="highlight-keyword">آرایه</strong>، <strong class="highlight-keyword">لیست پیوندی</strong>، <strong class="highlight-keyword">پشته</strong>، <strong class="highlight-keyword">صف</strong>، <strong class="highlight-keyword">درخت</strong> و <strong class="highlight-keyword">گراف</strong> نقش اساسی در طراحی سیستم‌های کارآمد دارند. الگوریتم‌هایی مانند <strong class="highlight-keyword">جست‌وجو</strong>، <strong class="highlight-keyword">مرتب‌سازی</strong>، <strong class="highlight-keyword">پیمایش گراف</strong> و الگوریتم‌های بهینه‌سازی عملکرد نرم‌افزار را بهبود می‌بخشند. تسلط بر این بخش نه تنها برای برنامه‌نویسی سطح بالا مهم است، بلکه ستون فقرات رقابت‌های برنامه‌نویسی، طراحی سیستم‌های بزرگ مقیاس و مصاحبه‌های فنی شرکت‌های بزرگ نیز محسوب می‌شود.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>امنیت سایبری</h2>
+            <p class="content-paragraph">
+                در دنیای دیجیتال، امنیت یکی از مهم‌ترین دغدغه‌هاست. امنیت سایبری مجموعه‌ای از روش‌ها و فناوری‌هاست که تلاش می‌کنند سیستم‌ها، شبکه‌ها و داده‌ها را در برابر حملات و تهدیدات محافظت کنند. این حوزه شامل مباحثی مانند <strong class="highlight-keyword">رمزنگاری</strong>، <strong class="highlight-keyword">تست نفوذ</strong>، <strong class="highlight-keyword">مدیریت آسیب‌پذیری</strong>، <strong class="highlight-keyword">فایروال‌ها</strong>، <strong class="highlight-keyword">تحلیل بدافزار</strong> و <strong class="highlight-keyword">امنیت شبکه</strong> است. با افزایش حملات سایبری، متخصصان امنیت به یکی از پرتقاضاترین نقش‌ها تبدیل شده‌اند. مدل‌های امنیتی جدید مانند <strong class="highlight-keyword">Zero Trust</strong> و استفاده از هوش مصنوعی در شناسایی تهدیدات، نسل تازه‌ای از سامانه‌های حفاظتی را به وجود آورده‌اند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>مهندسی نرم‌افزار</h2>
+            <p class="content-paragraph">
+                مهندسی نرم‌افزار علمی است که با هدف ساخت سیستم‌های قابل‌اعتماد، مقیاس‌پذیر و قابل نگه‌داری شکل گرفته. این حوزه شامل <strong class="highlight-keyword">تحلیل نیازمندی‌ها</strong>، <strong class="highlight-keyword">طراحی معماری</strong>، <strong class="highlight-keyword">تست</strong>، <strong class="highlight-keyword">استقرار</strong> و <strong class="highlight-keyword">نگهداری نرم‌افزار</strong> است. روش‌های توسعه مثل <strong class="highlight-keyword">Agile</strong> و <strong class="highlight-keyword">Scrum</strong> تیم‌ها را قادر می‌کند محصول را مرحله‌به‌مرحله بسازند و کیفیت را در طول مسیر حفظ کنند. مهندسی نرم‌افزار بیش از کدنویسی است؛ نوعی تفکر سیستماتیک برای خلق راه‌حل‌های پایدار در مقیاس بزرگ.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>پایگاه‌های داده</h2>
+            <p class="content-paragraph">
+                پایگاه داده یکی از مهم‌ترین بخش‌های هر سیستم نرم‌افزاری است. این ساختارها اطلاعات را ذخیره، مدیریت و بازیابی می‌کنند. پایگاه‌های داده رابطه‌ای مثل <strong class="highlight-keyword">MySQL</strong> و <strong class="highlight-keyword">PostgreSQL</strong> داده‌ها را در جدول‌ها سازمان‌دهی می‌کنند، در حالی که پایگاه‌های <strong class="highlight-keyword">NoSQL</strong> مانند <strong class="highlight-keyword">MongoDB</strong> برای داده‌های حجیم و ساختاری‌نیافته مناسب‌اند. امروزه مدیریت داده‌ها با ظهور <strong class="highlight-keyword">Big Data</strong>، پردازش توزیع‌شده و الگوریتم‌های تحلیلی وارد مرحله‌ای جدید شده و ابزارهایی مثل <strong class="highlight-keyword">Hadoop</strong> و <strong class="highlight-keyword">Spark</strong> در این عرصه نقش کلیدی دارند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>برنامه‌نویسی موبایل</h2>
+            <p class="content-paragraph">
+                برنامه‌نویسی موبایل با رشد گوشی‌های هوشمند به یکی از پرطرفدارترین حوزه‌ها تبدیل شده. توسعه‌دهندگان با استفاده از <strong class="highlight-keyword">Swift</strong> برای iOS و <strong class="highlight-keyword">Kotlin</strong> برای Android اپلیکیشن‌هایی می‌سازند که تجربهٔ کاربری سریع، روان و امن ارائه می‌دهند. فریم‌ورک‌های چندسکویی مانند <strong class="highlight-keyword">Flutter</strong> نیز امکان ساخت اپلیکیشن برای هر دو سیستم‌عامل با یک کد مشترک را فراهم می‌کنند. این حوزه ترکیبی از طراحی، کارایی و سادگی استفاده است.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>رایانش ابری (Cloud Computing)</h2>
+            <p class="content-paragraph">
+                رایانش ابری مدل جدیدی در ارائهٔ منابع محاسباتی است که به کسب‌وکارها اجازه می‌دهد بدون خرید سخت‌افزار، به زیرساخت‌های قدرتمند دسترسی داشته باشند. سرویس‌های ابری مثل <strong class="highlight-keyword">AWS</strong>، <strong class="highlight-keyword">Google Cloud</strong> و <strong class="highlight-keyword">Azure</strong> امکان می‌دهند برنامه‌ها به‌صورت مقیاس‌پذیر، انعطاف‌پذیر و ارزان اجرا شوند. مفاهیمی مثل <strong class="highlight-keyword">Container</strong>، <strong class="highlight-keyword">Kubernetes</strong> و <strong class="highlight-keyword">Serverless</strong> نیز معماری‌های نرم‌افزاری مدرن را شکل می‌دهند و توسعهٔ سیستم‌های توزیع‌شده را ساده‌تر می‌کنند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>واقعیت افزوده و واقعیت مجازی (AR/VR)</h2>
+            <p class="content-paragraph">
+                واقعیت افزوده و واقعیت مجازی تجربهٔ تعامل با دنیای دیجیتال را متحول کرده‌اند. AR لایه‌هایی از اطلاعات دیجیتال را روی دنیای واقعی قرار می‌دهد، در حالی که VR یک محیط کاملاً مصنوعی ایجاد می‌کند. این فناوری‌ها در بازی‌سازی، آموزش، پزشکی، معماری و شبیه‌سازی صنعتی کاربرد دارند. موتورهایی مثل <strong class="highlight-keyword">Unity</strong> و <strong class="highlight-keyword">Unreal</strong> نقش مهمی در توسعهٔ این نوع اپلیکیشن‌ها ایفا می‌کنند.
+            </p>
+        </section>
+
+        <section class="section-separator">
+            <h2>اینترنت اشیا (IoT)</h2>
+            <p class="content-paragraph">
+                اینترنت اشیا شبکه‌ای گسترده از دستگاه‌هاست که می‌توانند داده ارسال و دریافت کنند. از خانه‌های هوشمند گرفته تا شهرهای هوشمند، کارخانه‌ها و سیستم‌های پزشکی، IoT تحول بزرگی ایجاد کرده. برنامه‌نویسی در این حوزه نیازمند درک حسگرها، ارتباطات شبکه‌ای، پروتکل‌ها و امنیت است. دستگاه‌ها معمولاً با زبان‌هایی مثل <strong class="highlight-keyword">C</strong>، <strong class="highlight-keyword">Python</strong> یا میکروکنترلرها برنامه‌نویسی می‌شوند.
+            </p>
+        </section>
+
+
+        
+
+        
+    </div>
+    <div class="article-footer">
+        <span>توسط شرکت مگاوب</span> | <span>تاریخ: دی ۱۴۰۴</span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+</script>
+<style>
+
+
+
+body {
+font-family: Tahoma, Arial, sans-serif;
+margin: 0;
+padding: 20px 0;
+display: flex;
+flex-direction: column; /* چیدمان عمودی */
+align-items: center; /* وسط‌چین کردن افقی */
+font-family: 'Vazirmatn', sans-serif; /* فونت اصلی */
+ direction: rtl; /* راست به چپ */
+    /* گرادینت پس‌زمینه عمیق و مدرن */
+background: radial-gradient(circle at top left, var(--dark-blue-gradient-start), var(--dark-blue-gradient-end));
+min-height: 100vh; /* حداقل ارتفاع صفحه */
+padding-top: 25px; /* فاصله از بالای مرورگر */
+color: var(--text-color); /* رنگ متن اصلی */
+
+}
+
+:root {
+    --header-bg-color: #005b98; /* آبی تیره هدر */
+    --text-color: #f0f0ff; /* سفید مایل به آبی */
+    --primary-blue: #00aaff; /* آبی روشن برای هایلایت */
+    --secondary-blue: #0077b6; /* آبی میانه */
+    --dark-blue-gradient-start: #005D9B; /* شروع گرادینت بدنه */
+    --dark-blue-gradient-end: #000814; /* پایان گرادینت بدنه */
+    --border-color: rgba(255, 255, 255, 0.3); /* مرز شفاف‌تر */
+    --card-bg-hover: rgba(255, 255, 255, 0.15); /* پس‌زمینه کارت در هاور */
+    --skill-bg: rgba(255, 255, 255, 0.1); /* پس‌زمینه مهارت‌ها */
+    --skill-hover-bg: var(--primary-blue); /* پس‌زمینه مهارت در هاور */
+    --code-font: 'Vazirmatn', monospace; /* فونت monospace برای کدهای احتمالی */
+}
+/* هدر اصلی */
+.glass-header {
+    position: fixed;
+    top: 0;
+    width: 95%;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+
+    /* شیشه‌ای با آبی نفتی + آبی یخی */
+    background: rgba(20, 42, 70, 0.45); /* آبی نفتی نیمه‌شفاف */
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* حالت بعد از اسکرول */
+.glass-header.scrolled {
+    background: rgba(15, 30, 50, 0.75);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* لینک‌های منو */
+.menu a {
+    margin-left: 25px;
+    color: #ffffff; /* آبی یخی روشن */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a:hover {
+    color: #7acbff; /* آبی روشن */
+}
+
+/* موبایل */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+/* ریسپانسیو */
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        background: rgb(152, 156, 160);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+    .menu a {
+        margin: 12px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
+
+
+
+
+
+/* تعریف متغیرهای رنگی (مقادیر تقریبی بر اساس کدهای قبلی) */
+:root {
+    --primary-blue: #257ebe; /* آبی هدر */
+    --success-green: #4CAF50; /* سبز برای تأیید یا عناصر خاص */
+    --text-color: #f0f8ff; /* سفید مایل به آبی برای متن اصلی */
+    --article-bg: #257ebe; /* پس‌زمینه مقاله */
+    --article-title-color: #ffffff; /* رنگ عنوان مقاله */
+    --article-subtitle-color: #ddf0ff; /* رنگ زیرنویس مقاله */
+    --footer-text-color: rgba(255, 255, 255, 0.7); /* رنگ متن فوتر */
+}
+
+.article-container {
+    background-color: var(--article-bg);
+    padding: 40px 50px;
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto 60px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgb(255, 255, 255);
+}
+
+.article-title {
+    font-size: 32px;
+    color: var(--article-title-color);
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 15px;
+}
+
+.article-subtitle {
+    font-size: 18px;
+    color: var(--article-subtitle-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* استایل‌دهی به پاراگراف‌ها و سایر عناصر داخل article-content */
+
+.article-content p {
+    line-height: 1.9;
+    margin-bottom: 25px;
+    text-align: justify;
+    color: var(--text-color);
+}
+
+.article-content h3 {
+    color: var(--article-title-color);
+    margin-top: 35px;
+    border-right: 4px solid var(--success-green);
+    padding-right: 10px;
+}
+
+.article-content ul {
+    list-style-type: disc;
+    padding-right: 25px;
+    margin-bottom: 20px;
+}
+
+.article-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid rgb(255, 255, 255);
+    font-size: 13px;
+    color: var(--footer-text-color);
+}
+
+/* Media Queries برای ریسپانسیو کردن */
+
+/* تبلت‌ها و دستگاه‌های با صفحه نمایش کوچکتر */
+@media (max-width: 768px) { /* علامت } پایانی برای @media اضافه شد */
+    .article-container {
+        width: 95%; /* عرض بیشتر در صفحات کوچکتر */
+        padding: 30px 25px; /* padding کمتر */
+        margin-bottom: 40px; /* فاصله کمتر در پایین */
+    }
+
+    .article-title {
+        font-size: 28px; /* فونت کوچکتر برای عنوان */
+    }
+
+    .article-subtitle {
+        font-size: 16px; /* فونت کوچکتر برای زیرنویس */
+    }
+
+    .article-contentp {
+        line-height: 1.7; /* ارتفاع خط کمتر */
+        text-align: justify; /* */ /* علامت } پایانی برای این قانون CSS اضافه شد */
+    }
+} /* این } پایانی برای کل بلوک @media است */
+
+
+
+
+</style>
+</body>
+</html>

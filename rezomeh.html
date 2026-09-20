@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه مدرن</title>
+    <style>
+        :root {
+            --primary-blue-dark: #0a192f;
+            --primary-blue-light: #64ffda;
+            --secondary-text-light: #ccd6f6;
+            --primary-text-light: #8892b0;
+            --gradient-start: #4e54c8;
+            --gradient-end: #8f94fb;
+            --glass-bg: rgba(10, 25, 47, 0.7);
+            --glass-opacity: 0.85;
+            --glass-blur: 10px;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--primary-blue-dark);
+            color: var(--primary-text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto; /* Changed margin for sticky header */
+            padding: 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is below sticky header if needed */
+        }
+
+
+        .section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            color: var(--primary-blue-light);
+            border-bottom: 2px solid var(--primary-blue-light);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--secondary-text-light);
+        }
+
+        .card p {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card .details {
+            display: none;
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .toggle-button {
+            background-color: var(--primary-blue-light);
+            color: var(--primary-blue-dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #52e6c2;
+        }
+
+        .contact-info a {
+            color: var(--primary-blue-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #52e6c2;
+            text-decoration: underline;
+        }
+
+/* هدر شیشه‌ای */
+.glass-header {
+    position: fixed;
+    top: 0;
+    width: 85%;
+    margin: 7px auto;
+    left: 0;
+    right: 0;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+
+    background: rgba(20, 42, 70, 0.45);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+    z-index: 999;
+}
+
+/* حالت اسکرول */
+.glass-header.scrolled {
+    background: rgba(15, 30, 50, 0.75);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* لینک‌ها */
+.menu a {
+    margin-left: 25px;
+    color: #e8f4ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a:hover {
+    color: #7acbff;
+}
+
+/* موبایل */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+/* ریسپانسیو */
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        background: rgba(20, 42, 70, 0.85);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    .menu a {
+        margin: 12px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
+
+
+
+/* Footer Styles */
+.main-footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color-light);
+    padding: 50px 20px 20px; /* بالا، چپ/راست، پایین */
+    width: 100%;
+    margin-top: auto; /* باعث می‌شود footer به پایین صفحه بچسبد */
+    position: relative; /* برای positioning عناصر داخلی */
+    z-index: 5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* مرکزیت و فاصله تا نقشه */
+    text-align: right; /* راست‌چین کردن متن */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* حداقل عرض برای هر ستون */
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--footer-link-hover);
+    padding-left: 8px;
+}
+
+.licenses {
+    display: flex;
+    justify-content: flex-start; /* راست‌چین کردن مجوزها */
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.license-item {
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.license-item img {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.license-item p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Map Section */
+.map-box {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-col {
+        width: 80%;
+        text-align: center;
+    }
+    .licenses {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .centered-box {
+        padding: 30px 20px;
+    }
+    .centered-box h1 {
+        font-size: 2.4rem;
+    }
+    .countdown {
+        gap: 10px;
+        justify-content: center;
+    }
+    .countdown div {
+        padding: 8px 10px;
+        min-width: 70px;
+    }
+    .countdown span {
+        font-size: 1.4rem;
+    }
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-item {
+        width: 90%;
+    }
+    .map-box iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .centered-box h1 {
+        font-size: 2rem;
+    }
+    .centered-box p {
+        font-size: 0.95rem;
+    }
+    .feature-item i {
+        font-size: 2.5rem;
+    }
+    .main-footer {
+        padding: 30px 10px 10px;
+    }
+    .footer-col h3 {
+        font-size: 1.2rem;
+    }
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+/* rezomeh shoro misheh baray nemoneh kar ha */
+
+
+/* -------------------- استایل بخش رزومه -------------------- */
+.resume-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 50px 20px;
+}
+
+.glass-container-resume {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgb(255, 255, 255);
+    color: var(--text-color);
+}
+
+.resume-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(255, 255, 255);
+}
+
+/* --- بخش مهارت‌ها --- */
+.skills-list {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.skill-tag {
+    display: inline-block;
+    background-color: rgb(0, 229, 255);
+    color: var(--text-color);
+    padding: 10px 20px;
+    margin: 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    border: 1px solid var(--primary-blue);
+    transition: background-color 0.3s;
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-blue);
+}
+
+/* --- بخش نمونه کارها --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--success-green);
+}
+
+.portfolio-item h4 {
+    font-size: 1.4rem;
+    color: var(--success-green);
+    margin-bottom: 10px;
+}
+
+.portfolio-item p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.portfolio-link {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-top: auto;
+    display: inline-block;
+}
+
+.portfolio-link:hover {
+    color: var(--text-color);
+}
+
+
+/* ******************************************************* */
+/* ******************** تنظیمات ریسپانسیو ******************* */
+/* ******************************************************* */
+
+/* تبلت و موبایل کوچک */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .glass-container-hero {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* بخش معرفی تیم (Team Grid) */
+    .team-grid {
+        flex-direction: column; /* چیدن عمودی */
+    }
+    .team-member {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* بخش رزومه */
+    .glass-container-resume, .glass-container-about {
+        padding: 30px 20px;
+    }
+    
+    .resume-title, .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* موبایل خیلی کوچک */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .skill-tag {
+        display: block; /* تگ‌ها در موبایل روی هم قرار می‌گیرند */
+        margin: 8px auto;
+    }
+}
+
+
+/* taaaaaaaaaaaaamammmmmmmmmmmmmmmmaaamm */
+    </style>
+    <link href="https://cdn.jsdelivr.net/font- வசির/1.0.0/font- வசির.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+
+<header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+
+
+
+<script>
+// heeeder hast
+
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+// heeder tamam
+
+
+</script>
+
+<br>
+<br>
+<br>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2 style="color: aliceblue;">درباره ما</h2>
+            <p>
+               
+        تیم ما سابقه همکاری در پروژه‌های متنوعی از جمله طراحی سایت‌های رستوران، منوهای دیجیتال، وب‌سایت‌های شرکتی، فروشگاهی و تبلیغاتی را دارد. 
+        هدف ما این است که پس از پایان دوره‌های آموزشی، در حوزه طراحی وب، تولید محتوای تبلیغاتی (ادیت فیلم و عکس)، سئو تخصصی و خدمات چاپ مانند کارت ویزیت و تراکت، به عنوان نیچ اصلی مگاوب فعالیت حرفه‌ای و گسترده داشته باشیم
+            </p>
+        </section>
+
+        <section id="experience" class="section">
+            <h2  style="color: aliceblue;">تجربیات کاری ما</h2>
+            <div class="card">
+                <h3> برنامه‌نویس _مگاوب</h3>
+                <p>تاریخ شروع=1404 - تاریخ پایان</p>
+                <p>خدمات اموزشی وطراحی </p>
+                <button class="toggle-button" onclick="toggleDetails(event)">نمایش جزئیات</button>
+                <div class="details">
+                    <ul>
+                        <li> برای دیدن</li>
+                        <li> نمونه کار ها</li>
+                        <li>به صفحه درباره ما مراجعه کنید  </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>  فعالیت در حوضه برنامه‌نویسی - نام شرکت=اکادمی کیان وسبز لرن</h3>
+                <p>تاریخ شروع=1400 - تاریخ پایان</p>
+                <p>توسعه بک اند و فرانت اند</p>
+                <button class="toggle-button" onclick="toggleDetails(event)">نمایش جزئیات</button>
+                <div class="details">
+                    <ul>
+                        <li> </li>
+                        <li> </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2  style="color: aliceblue;">تحصیلات</h2>
+            <div class="card">
+                <h3>مدرک لیسانس - دانشگاه قدس</h3>
+                <p>سال فارغ‌التحصیلی</p>
+                <p>مهندسی کامپیوتر</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2  style="color: aliceblue;">مهارت‌ها</h2>
+            <div class="card">
+                <h3>دسته‌بندی مهارت‌ها (مثلاً: زبان‌های برنامه‌نویسی وادیت و فتوشاپ وتبلیغات و
+                SEO) تخصصی</h3>
+                <p>سایت ۱، ادیت ۲، سعو ۳، چاپ ۴</p>
+            </div>
+            <div class="card">
+                <h3>دسته‌بندی دیگر </h3>
+                <p>ابزار ۱، ابزار ۲</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-info">
+            <h2>اطلاعات تماس</h2>
+            <p>ایمیل: <a href="mailto:your.email@example.com">werestling.abolfazl.star@gmail.com</a></p>
+            <p>لینکدین: <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
+            <p>وبسایت شخصی: <a href="#" target="_blank">megaweb2025.ir</a></p>
+        </section>
+    </div>
+
+
+
+
+
+
+    <!-- ******************************************************* -->
+    <!-- ۳. بخش رزومه و نمونه کارها (Resume/Portfolio Section) -->
+    <!-- ******************************************************* -->
+    <section class="resume-section">
+        <div class="glass-container-resume">
+            <h2 class="resume-title">رزومه و نمونه کارها</h2>
+
+            <!-- بخش مهارت‌ها -->
+            <div  class="skills-list">
+                <h4>مهارت‌های کلیدی:</h4>
+                <span class="skill-tag">HTML5/CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Glassmorphism Design</span>
+                <span class="skill-tag">API Integration</span>
+            </div>
+            
+            <!-- بخش نمونه کارها -->
+            <div  class="portfolio-grid">
+                
+                <!-- پروژه ۱: سایت قوانین شیشه‌ای (پروژه فعلی) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;">تالار ساقدوش</h4>
+                    <p> تالار ساقدوش یک سایت با ظاهر مدرن و شیک با ترکیب رنگ های گرم نمونه سایت شرکتی
+                    </p>
+                    <a href="saghdosh-hall.html" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+
+                <!-- پروژه ۲: تحلیل داده (مثال) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;"> لباس فروشی  </h4>
+                    <p>تراشه و آسفالت محمودی یک سایت با ظاهر ساده نمومه سایت شرکتی</p>
+                    <a href="lebus.shop" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+
+
+
+                 <!-- پروژه ۲: تحلیل داده (مثال) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;"> اکادمی نوا</h4>
+                    <p>تراشه و آسفالت محمودی یک سایت با ظاهر ساده نمومه سایت شرکتی</p>
+                    <a href="nova.html" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+
+
+                 <!-- پروژه ۲: تحلیل داده (مثال) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;">تراشه و آسفالت محمودی</h4>
+                    <p>تراشه و آسفالت محمودی یک سایت با ظاهر ساده نمومه سایت شرکتی</p>
+                    <a href="terasheh.html" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+
+                 <!-- پروژه ۲: تحلیل داده (مثال) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;">سالن زیبایی</h4>
+                    <p>تراشه و آسفالت محمودی یک سایت با ظاهر ساده نمومه سایت شرکتی</p>
+                    <a href="biyouty.html" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+                <!-- پروژه ۳: اپلیکیشن مدیریت وظایف (مثال) -->
+                <div style="margin-right: 25px;" class="portfolio-item">
+                    <h4 style="color: #ffffff;">فروشگاهی</h4>
+                    <p>توسعه رابط کاربری یک اپلیکیشن مدیریت وظایف با استفاده از React. تمرکز بر تجربه کاربری روان و سریع.</p>
+                    <a href="shop.wordpress.html" class="portfolio-link">جزئیات بیشتر / لینک پروژه</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+
+
+    <script>
+        // Toggle Details function (remains the same)
+        function toggleDetails(event) {
+            const button = event.target;
+            const detailsDiv = button.nextElementSibling;
+
+            if (detailsDiv.style.display === "block") {
+                detailsDiv.style.display = "none";
+                button.textContent = "نمایش جزئیات";
+            } else {
+                detailsDiv.style.display = "block";
+                button.textContent = "پنهان کردن جزئیات";
+            }
+        }
+
+    </script>
+
+
+<footer class="main-footer fade-in">
+
+  <div class="footer-content">
+
+    <!-- درباره -->
+    <div class="footer-col">
+      <h3>درباره آموزشگاه</h3>
+      <p>
+        آموزشگاه ما با هدف ارائه آموزش‌های تخصصی و مهارت‌محور در زمینه فناوری، مسیر پیشرفت شما را هموار می‌کند.
+        ما ترکیبی از دانش، تجربه عملی و مسیر شغلی روشن را در اختیار شما قرار می‌دهیم.
+      </p>
+    </div>
+
+    <!-- دسترسی آسان -->
+    <div class="footer-col">
+      <h3>دسترسی آسان</h3>
+      <ul class="footer-links">
+        <li><a href="shop.html">فروشگاه</a></li>
+        <li><a href="web log.html">وبلاگ</a></li>
+        <li><a href="about3.html">درباره ما</a></li>
+        <li><a href="about4.html">تماس با ما</a></li>
+        <li><a href="megaweb.html">صفحه اصلی</a></li>
+        <li><a href="about6.html">قوانین و مقررات</a></li>
+        <li><a href="about7.html">حساب کاربری من</a></li>
+      </ul>
+    </div>
+
+    <!-- خبرنامه + مجوزها -->
+    <div class="footer-col">
+      <h3>خبرنامه و مجوزها</h3>
+
+      <div class="licenses">
+        <div class="license-item">
+          <img src="images/license1.png" alt="مجوز رسمی">
+          <p>مجوز رسمی وزارت علوم</p>
+        </div>
+
+        <div class="license-item">
+          <img src="images/license2.png" alt="مجوز فنی">
+          <p>مجوز سازمان فنی و حرفه‌ای</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نقشه -->
+  <div class="map-box">
+    <h3>موقعیت آموزشگاه روی نقشه</h3>
+    <iframe
+      src="https://maps.app.goo.gl/A4fth8YVpyu4fekz5?g_st=atm"
+      width="100%"
+      height="400"
+      style="border: 0; border-radius: 12px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+</footer>
+
+<script src="coment.js"></script>
+
+</body>
+</html>

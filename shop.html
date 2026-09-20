@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>megashop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="shop.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+</head>
+<body>
+
+
+
+<header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+
+
+
+<script>
+// heeeder hast
+
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+// heeder tamam
+
+
+</script>
+
+
+ <div class="background-particles"></div>
+
+<div class="centered-box">
+    <h1>به زودی در دسترس خواهیم بود!</h1>
+    <p>فروشگاه ما در حال آماده‌سازی یک تجربه خرید فوق‌العاده است. همراه ما بمانید!</p>
+
+    <div class="countdown">
+        <div><span id="days">00</span>روز</div>
+        <div><span id="hours">00</span>ساعت</div>
+        <div><span id="minutes">00</span>دقیقه</div>
+        <div><span id="seconds">00</span>ثانیه</div>
+    </div>
+
+    <div class="features">
+        <div class="feature-item">
+            <i class="fas fa-rocket"></i>
+            <h3>محصولات جدید</h3>
+            <p>منتظر مجموعه‌ای بی‌نظیر از جدیدترین محصولات باشید.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-star"></i>
+            <h3>کیفیت عالی</h3>
+            <p>تعهد ما ارائه بهترین کیفیت است.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>ارسال سریع</h3>
+            <p>تجربه خریدی مطمئن با ارسال دقیق و سریع.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="main-footer fade-in">
+
+  <div class="footer-content">
+
+    <!-- درباره -->
+    <div class="footer-col">
+      <h3>درباره آموزشگاه</h3>
+      <p>
+        آموزشگاه ما با هدف ارائه آموزش‌های تخصصی و مهارت‌محور در زمینه فناوری، مسیر پیشرفت شما را هموار می‌کند.
+        ما ترکیبی از دانش، تجربه عملی و مسیر شغلی روشن را در اختیار شما قرار می‌دهیم.
+      </p>
+    </div>
+
+    <!-- دسترسی آسان -->
+    <div class="footer-col">
+      <h3>دسترسی آسان</h3>
+      <ul class="footer-links">
+        <li><a href="shop.html">فروشگاه</a></li>
+        <li><a href="web log.html">وبلاگ</a></li>
+        <li><a href="about3.html">درباره ما</a></li>
+        <li><a href="about4.html">تماس با ما</a></li>
+        <li><a href="megaweb.html">صفحه اصلی</a></li>
+        <li><a href="about6.html">قوانین و مقررات</a></li>
+        <li><a href="about7.html">حساب کاربری من</a></li>
+      </ul>
+    </div>
+
+    <!-- خبرنامه + مجوزها -->
+    <div class="footer-col">
+      <h3>خبرنامه و مجوزها</h3>
+
+      <div class="licenses">
+        <div class="license-item">
+          <img src="images/license1.png" alt="مجوز رسمی">
+          <p>مجوز رسمی وزارت علوم</p>
+        </div>
+
+        <div class="license-item">
+          <img src="images/license2.png" alt="مجوز فنی">
+          <p>مجوز سازمان فنی و حرفه‌ای</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نقشه -->
+  <div class="map-box">
+    <h3>موقعیت آموزشگاه روی نقشه</h3>
+    <iframe
+      src="https://maps.app.goo.gl/A4fth8YVpyu4fekz5?g_st=atm"
+      width="100%"
+      height="400"
+      style="border: 0; border-radius: 12px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+</footer>
+
+<script src="coment.js"></script>
+
+
+
+</body>
+</html>

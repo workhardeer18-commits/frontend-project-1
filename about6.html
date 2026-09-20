@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی با قوانین</title>
+</head>
+<body>
+    <style>
+
+        /* heder az inja */
+
+
+/* هدر اصلی */
+.glass-header {
+    position: fixed;
+    top: 0;
+    width: 95%;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px;
+
+    /* شیشه‌ای با آبی نفتی + آبی یخی */
+    background: rgba(20, 42, 70, 0.45); /* آبی نفتی نیمه‌شفاف */
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* حالت بعد از اسکرول */
+.glass-header.scrolled {
+    background: rgba(15, 30, 50, 0.75);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* لینک‌های منو */
+.menu a {
+    margin-left: 25px;
+    color: #e8f4ff; /* آبی یخی روشن */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.menu a:hover {
+    color: #7acbff; /* آبی روشن */
+}
+
+/* موبایل */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+/* ریسپانسیو */
+@media(max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 15px;
+        background: rgba(20, 42, 70, 0.85);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+    .menu a {
+        margin: 12px 0;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+}
+/* tamam */
+
+
+/* وارد کردن فونت Vazirmatn */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
+
+:root {
+    /* --- متغیرهای هدر شما --- */
+    --header-bg-color:#1E7FBF; /* بنفش تیره مات */
+    --text-color: #f0f0ff; /* سفید مایل به آبی/صورتی */
+    --primary-blue: #00aaff; /* آبی روشن */
+    --success-green: #ffffff; /* سفید */
+    --danger-red: #00f2ff;   /* آبی روشن */
+    --border-color: rgb(255, 255, 255);
+    --shadow-color: rgb(255, 255, 255);
+    
+    /* --- متغیرهای جدید برای صفحه قوانین --- */
+    --rules-bg-dark: #001f3f; /* آبی نفتی تیره */
+    --rules-gold: #f5d580; /* طلایی */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    /* حذف پس‌زمینه سراسری، فقط برای جایگذاری محتوا */
+    background: #17174f; /* یک پس‌زمینه تیره ملایم برای دید بهتر */
+    min-height: 100vh;
+    padding-top: 100px; /* فاصله برای جلوگیری از پوشانده شدن هدر */
+}
+
+
+.rules-page {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(var(--rules-bg-dark), 0.95); /* پس‌زمینه اصلی صفحه قوانین (آبی نفتی) */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 9999; /* بالاترین لایه */
+  /* نمایش صفحه به صورت پیش‌فرض */
+  display: flex; 
+  text-decoration-color: #e8f4ff;
+}
+
+.rules-box {
+  /* استایل شیشه‌ای روی پس‌زمینه آبی نفتی */
+  background: rgba(220, 219, 219, 0.1);
+  backdrop-filter: blur(8px); /* افکت شیشه‌ای درخواستی */
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--rules-gold); /* سایه اضافه برای برجسته شدن */
+  text-align: justify;
+  line-height: 1.8;
+  overflow-y: auto;
+  max-height: 90vh;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rules-box:hover {
+    /* افکت هاور درخواستی */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--rules-gold);
+}
+
+.rules-box h2 {
+  text-align: center;
+  color: var(--rules-gold); /* رنگ طلایی برای عنوان */
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.rules-content p {
+    color: #f0f0f7; /* متن کمی روشن‌تر */
+}
+
+.close-btn {
+  display: block;
+  margin: 30px auto 0;
+  background-color: var(--rules-gold);
+  color: var(--rules-bg-dark);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  background-color: #ffe08a;
+  transform: scale(1.05);
+}
+
+/* استایل نوار اسکرول */
+.rules-box::-webkit-scrollbar {
+  width: 8px;
+}
+.rules-box::-webkit-scrollbar-thumb {
+  background: var(--rules-gold);
+  border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+/* 
+    footerr shoro */
+
+
+
+    
+/* ساختار کلی فوتر */
+.main-footer {
+  background: linear-gradient(135deg, #001f2b, #003f5c, #6dd5fa22);
+  padding: 50px 30px;
+  color: white;
+  margin-top: 40px;
+  font-family: "IRANSans", sans-serif;
+  backdrop-filter: blur(6px);
+}
+
+/* تنظیم ستون‌ها */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* هر ستون */
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* تیتر */
+.footer-col h3 {
+  margin-bottom: 15px;
+  border-right: 4px solid #6dd5fa;
+  padding-right: 8px;
+}
+
+/* متن */
+.footer-col p {
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+/* لینک‌ها */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #cbeeff;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-right 0.3s;
+}
+
+.footer-links a:hover {
+  color: #6dd5fa;
+  padding-right: 8px;
+}
+
+/* مجوزها */
+.licenses {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.license-item {
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 10px;
+  width: 130px;
+  transition: transform 0.3s ease;
+}
+
+.license-item:hover {
+  transform: translateY(-5px);
+}
+
+.license-item img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* بخش نقشه */
+.map-box {
+  margin-top: 40px;
+}
+
+.map-box h3 {
+  margin-bottom: 15px;
+  border-right: 4px solid #6dd5fa;
+  padding-right: 8px;
+}
+
+/* انیمیشن ظاهر شدن */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* واکنش‌گرا */
+@media(max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .licenses {
+    justify-content: center;
+  }
+}
+
+    </style>
+
+
+   <header class="glass-header" id="header">
+    <div class="logo">لوگو</div>
+
+    <nav class="menu">
+        <a href="megaweb.html">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="rezomeh.html">رزومه</a>
+        <a href="web log.html">وبلاگ</a>
+    </nav>
+
+    <div class="mobile-toggle" id="toggle">☰</div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    const header = document.getElementById("header");
+    const toggle = document.getElementById("toggle");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+    });
+</script>
+
+
+    <!-- لایه پاپ‌آپ قوانین (همیشه وجود دارد اما پنهان است) -->
+    <div class="rules-page">
+      <div class="rules-box">
+        <h2>قوانین و مقررات</h2>
+        <div  style="color: rgb(229, 215, 215);" class="rules-content">
+          <p  style="color: rgb(232, 229, 229);">
+          <p>   <h6>حضور و غیاب</h6>
+           دانش اموزان موظفند در تمام جلسات کلاس حاضر شوند در صورت غیبت باید دلیل قانع کننده ارائه دهند</p>
+          <p >  <h6>انضباط کلاس</h6>
+           رعایت ادب و احترام نسبت به مدرس و سایر دانش اموزان الزامی است</p>
+           <p>  <h6>تکالیف و پروژه ها</h6>
+           انجام به موقع تکالیف و پروژه الزامی است.در صورت تاخیر نمره مربوطه کاهش خواهد یافت</p>
+          <p>    <h6>حمایت از</h6>
+            دانش اموزان موظفند برای یادگیری بهتر در صورت نیاز از مدرسین مشاوران و همکلاسی ها کمک بگیرید
+          </p>
+          </p>
+        </div>
+        <button class="close-btn">بستن</button>
+      </div>
+    </div>
+
+
+    <script>
+      // مخفی کردن صفحه قوانین در لود اولیه
+      document.querySelector('.rules-page').style.display = 'none';
+      
+      // دکمه نمایش قوانین
+      const viewRulesButton = document.querySelector('button[onclick*="viewRules"]');
+      // اگر دکمه اصلی شما هنوز وجود دارد، آن را پیدا کرده و کارکرد آن را اصلاح می‌کنیم
+      let mainButton = document.querySelector('button[onclick*="document.querySelector(\'.rules-page\').style.display=\'flex\'"]');
+      if (!mainButton) {
+          // اگر دکمه اصلی پیدا نشد، یک دکمه تستی برای نمایش ایجاد می‌کنیم
+          mainButton = document.createElement('button');
+          mainButton.textContent = "مشاهده قوانین (دکمه تستی)";
+          mainButton.className = "btn-register-glass"; // برای استایل دهی بهتر
+          mainButton.style.position = 'fixed';
+          mainButton.style.bottom = '20px';
+          mainButton.style.right = '20px';
+          mainButton.style.zIndex = '1001';
+          mainButton.onclick = () => document.querySelector('.rules-page').style.display = 'flex';
+          document.body.appendChild(mainButton);
+      }
+
+
+      // گوش دادن به کلیک دکمه بستن
+      document.querySelector('.close-btn').addEventListener('click', () => {
+        document.querySelector('.rules-page').style.display = 'none';
+      });
+      
+      // اطمینان از اینکه دکمه اصلی شما (اگر وجود دارد) صفحه را نمایش می‌دهد
+      if (mainButton && !mainButton.onclick.toString().includes('viewRules')) {
+          mainButton.onclick = () => document.querySelector('.rules-page').style.display = 'flex';
+      }
+    </script>
+
+
+
+
+<script src="coment.js"></script>
+
+<footer class="main-footer">
+
+  <div class="footer-content fade-in">
+
+    <!-- درباره -->
+    <div class="footer-col">
+      <h3>درباره آموزشگاه</h3>
+      <p>
+        آموزشگاه ما با هدف ارائه آموزش‌های تخصصی و مهارت‌محور در زمینه فناوری، مسیر پیشرفت شما را هموار می‌کند.
+        ما ترکیبی از دانش، تجربه عملی و مسیر شغلی روشن را در اختیار شما قرار می‌دهیم.
+      </p>
+    </div>
+
+    <!-- دسترسی آسان -->
+    <div class="footer-col">
+      <h3>دسترسی آسان</h3>
+      <ul class="footer-links">
+        <li><a href="shop.html">فروشگاه</a></li>
+        <li><a href="web log.html">وبلاگ</a></li>
+        <li><a href="about3.html">درباره ما</a></li>
+        <li><a href="about4.html">تماس با ما</a></li>
+        <li><a href="megaweb.html">صفحه اصلی</a></li>
+        <li><a href="about6.html">قوانین و مقررات</a></li>
+        <li><a href="about7.html">حساب کاربری من</a></li>
+      </ul>
+    </div>
+
+    <!-- خبرنامه + مجوزها -->
+    <div class="footer-col">
+      <h3>خبرنامه و مجوزها</h3>
+
+      <div class="licenses">
+        <div class="license-item">
+          <img src="images/license1.png" alt="مجوز رسمی">
+          <p>مجوز رسمی وزارت علوم</p>
+        </div>
+
+        <div class="license-item">
+          <img src="images/license2.png" alt="مجوز فنی">
+          <p>مجوز سازمان فنی و حرفه‌ای</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- نقشه -->
+  <div class="map-box fade-in">
+    <h3>موقعیت آموزشگاه روی نقشه</h3>
+    <iframe 
+      src="https://maps.app.goo.gl/A4fth8YVpyu4fekz5?g_st=atm"
+      width="100%" 
+      height="400"
+      style="border: 0; border-radius: 12px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+</footer>
+
+
+</body>
+</html>
